@@ -17,6 +17,6 @@ Functionality:
 - Create one or more of the features using a Test-Driven Development (TDD) approach.  Tutorials for TDD should also be available on Pluralsight
 - Create a set of unit level tests using the MSTest framework to validate the classes of your program
 
-Assigned on:  04/02/2015
-Work Started on: 04/13/2015
-Submitted V1 on 4/24/2015
+- Assigned on:  04/02/2015
+- Work Started on: 04/13/2015
+- Submitted V1 on 4/24/2015
