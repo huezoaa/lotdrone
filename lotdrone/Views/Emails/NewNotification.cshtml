@@ -1,0 +1,17 @@
+﻿@model lotdrone.Models.NewNotificationEmail
+
+To: @Model.To
+From: LotDrone@ahstudios.com
+Subject: Your attention is required
+
+Hello,
+There is an issue with a vehicle registered under your name.  
+Please read below for details:
+
+Vehicle License Plate: @Model.LicensePlate
+
+Issue: @Model.Notification
+
+Thanks for your prompt attention to this matter.
+
+LotDrone Automated System

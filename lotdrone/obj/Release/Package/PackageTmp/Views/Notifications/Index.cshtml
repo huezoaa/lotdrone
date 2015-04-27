@@ -1,0 +1,59 @@
+﻿@model IEnumerable<lotdrone.Models.Notification>
+
+@{
+    ViewBag.Title = "Notifications";
+}
+
+<h2>Notifications</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", routeValues: null, htmlAttributes: new { @class = "btn btn-primary btn-md" })
+</p>
+
+<p>
+    @using (Html.BeginForm("Index", "Notifications", FormMethod.Get))
+    {
+        <p> License Plate: @Html.TextBox("SearchString") 
+        <input type="submit" value="Filter" /></p>
+    }
+</p>
+
+
+
+
+
+<table class="table table-striped table-bordered table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LicensePlate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeStamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicensePlate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.NotificationID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.NotificationID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.NotificationID })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "LotDrone";
+}
+
+<div class="jumbotron">
+    <h1>Lot-Drone</h1>
+    <p class="lead">Car related incident notification system</p>
+
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <!---<div><a class="btn btn-primary btn-lg" @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })>></a></div>-->
+    <!--@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })-->
+    @Html.AntiForgeryToken()
+    <!--<div>@Html.DisplayName(User.Identity.GetUserName()), You are logged in.</div>-->
+    <a class="btn btn-primary btn-lg" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+}
+else
+{
+    <!--<div><a class="btn btn-primary btn-lg" @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }) >></a></div>-->
+    <!--<a class="btn btn-primary btn-lg" @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })></a>-->
+   @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class="btn btn-primary btn-lg"})
+
+} 
+    </div>
