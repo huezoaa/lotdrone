@@ -8,17 +8,28 @@ using System.Web;
 using System.Web.Mvc;
 using lotdrone.Models;
 
+
+
 namespace lotdrone.Controllers
 {
     public class EmployeesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private EmployeesRepository repository;  //AH:  will use this for our Mock test
+
+        public EmployeesController(EmployeesRepository repository) //AH: constructor used for Unit test.
+        {
+            this.repository = repository;
+        }
 
         // GET: Employees
         [Authorize(Roles = "canEdit")]  //AH: Adding security to this method.
-        public ActionResult Index()
+        // public ActionResult Index()     //AH:  This was the original line
+        public ViewResult Index() //AH:  Originally this was type ActionResult, now it's type ViewResult.
         {
-            return View(db.Employees.ToList());
+            var employees = repository.GetAll();
+            return View(employees);            
+            //  return View(db.Employees.ToList()); //AH: This was the original line.
         }
 
         // GET: Employees/Details/5
