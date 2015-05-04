@@ -17,19 +17,19 @@ namespace lotdrone.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         private EmployeesRepository repository;  //AH:  will use this for our Mock test
 
-        public EmployeesController(EmployeesRepository repository) //AH: constructor used for Unit test.
-        {
-            this.repository = repository;
-        }
+ //**       public EmployeesController(EmployeesRepository repository) //AH: constructor used for Unit test.
+//**       {
+//**            this.repository = repository;
+//**        }
 
         // GET: Employees
         [Authorize(Roles = "canEdit")]  //AH: Adding security to this method.
-        // public ActionResult Index()     //AH:  This was the original line
-        public ViewResult Index() //AH:  Originally this was type ActionResult, now it's type ViewResult.
+        public ActionResult Index()     //AH:  This is  the original line
+ //**  public ViewResult Index() //AH:   type ViewResult  for the unit test.
         {
-            var employees = repository.GetAll();
-            return View(employees);            
-            //  return View(db.Employees.ToList()); //AH: This was the original line.
+//**    var employees = repository.GetAll();  //AH:  for Unit test
+//**    return View(employees);                       //AH: for unit test
+          return View(db.Employees.ToList()); //AH: This is  the original line.
         }
 
         // GET: Employees/Details/5
